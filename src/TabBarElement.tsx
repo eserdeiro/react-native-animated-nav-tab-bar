@@ -25,10 +25,7 @@ import { BottomTabBarWrapper, Dot, Label, TabButton } from "./UIComponents";
 interface TabBarElementProps {
   state: TabNavigationState<Record<string, object | undefined>>;
   navigation: any;
-  descriptors: Record<
-    string,
-    Descriptor<any, any, any>
-  >;
+  descriptors: Record<string, Descriptor<any, any, any>>;
   appearance: IAppearanceOptions;
   tabBarOptions?: any;
   lazy?: boolean;
@@ -384,8 +381,7 @@ export default ({
   });
 
   const { options } = descriptors[state.routes[state.index].key];
-  const tabBarVisible =
-    options.tabBarVisible == undefined ? true : options.tabBarVisible;
+  const tabBarVisible = options?.tabBarStyle?.display !== "none";
   return (
     <React.Fragment>
       {/* Current Screen */}
