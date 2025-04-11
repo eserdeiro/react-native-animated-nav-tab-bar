@@ -132,10 +132,7 @@ export default ({
    * of the tab to calculate the new position.
    */
   const updatePrevPos = () => {
-    setPos((pos) => {
-      setPrevPos(pos);
-      return pos;
-    });
+    setPrevPos(pos);
     animatedPos.setValue(0);
   };
 
@@ -169,9 +166,8 @@ export default ({
    * Animate whenever the navigation state changes
    */
   useEffect(() => {
-    animation(animatedPos).start(() => {
-      updatePrevPos();
-    });
+    updatePrevPos();
+    animation(animatedPos).start();
   }, [state.index]);
 
   // Compute activeBackgroundColor, if array provided, use array otherwise fallback to

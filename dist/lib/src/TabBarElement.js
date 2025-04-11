@@ -93,10 +93,7 @@ export default (function (_a) {
      * of the tab to calculate the new position.
      */
     var updatePrevPos = function () {
-        setPos(function (pos) {
-            setPrevPos(pos);
-            return pos;
-        });
+        setPrevPos(pos);
         animatedPos.setValue(0);
     };
     /**
@@ -125,9 +122,8 @@ export default (function (_a) {
      * Animate whenever the navigation state changes
      */
     useEffect(function () {
-        animation(animatedPos).start(function () {
-            updatePrevPos();
-        });
+        updatePrevPos();
+        animation(animatedPos).start();
     }, [state.index]);
     // Compute activeBackgroundColor, if array provided, use array otherwise fallback to
     // default tabBarOptions property activeBackgroundColor (fallbacks for all unspecified tabs)
