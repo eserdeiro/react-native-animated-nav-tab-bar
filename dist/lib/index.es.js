@@ -243,6 +243,9 @@ var TabBarElement = (function (_a) {
         return Animated.spring(val, {
             toValue: 1,
             useNativeDriver: false,
+            stiffness: 120,
+            damping: 16,
+            mass: 0.9,
         });
     };
     /**
